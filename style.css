@@ -1,0 +1,114 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #8b5cf6, #38bdf8 50%, #f472b6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #101a4c;
+}
+
+.app {
+  width: min(1100px, 100%);
+  background: rgba(255,255,255,.96);
+  border-radius: 30px;
+  padding: 28px 45px 35px;
+  box-shadow: 0 20px 60px rgba(20,30,80,.25);
+  position: relative;
+  overflow: hidden;
+}
+
+header { text-align: center; position: relative; }
+header h1 { margin: 0; font-size: clamp(42px, 6vw, 70px); color: #14245f; }
+header h1 span { color: #1769e8; }
+header h1 b { color: #ee3045; }
+header p { margin: 8px 0 26px; font-size: 20px; }
+
+.decor { position: absolute; font-weight: 900; opacity: .8; }
+.x1 { left: 3%; top: -15px; color: #f36b83; font-size: 70px; }
+.o1 { right: 3%; top: -12px; color: #65a4ff; font-size: 70px; }
+
+.modes { display: flex; gap: 18px; margin-bottom: 22px; }
+.mode {
+  flex: 1; padding: 17px; border: 1px solid #dce3ef; border-radius: 18px;
+  background: #eef2f8; color: #18245c; font-size: 20px; font-weight: 700; cursor: pointer;
+}
+.mode.active { background: #2879ee; color: white; box-shadow: 0 8px 22px rgba(40,121,238,.3); }
+
+.settings {
+  display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 20px;
+  align-items: center; margin-bottom: 25px; font-size: 18px; font-weight: 700;
+}
+.settings label { display: flex; align-items: center; gap: 10px; }
+select {
+  padding: 10px 15px; border: 1px solid #d6deeb; border-radius: 12px;
+  background: white; font-size: 17px; font-weight: 700;
+}
+.status {
+  text-align: center; padding: 14px; border-radius: 15px;
+  background: #d7f5df; color: #0b8a35; font-size: 23px; font-weight: 800;
+}
+
+.game-area {
+  display: grid; grid-template-columns: 170px 1fr 170px;
+  gap: 30px; align-items: center;
+}
+.score-card {
+  text-align: center; border-radius: 22px; padding: 22px 12px;
+  background: #eff6ff; border: 2px solid #cfe2ff;
+}
+.score-card.robot { background: #fff3f6; border-color: #f5cbd5; }
+.score-card .icon { font-size: 38px; }
+.score-card h2 { margin: 7px 0; }
+.score-card p { margin: 5px; }
+.score-card strong { font-size: 42px; color: #1769e8; }
+.score-card.robot strong { color: #dc2440; }
+
+.board-wrap { display: flex; justify-content: center; }
+.board {
+  width: min(420px, 70vw); height: min(420px, 70vw);
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr); gap: 10px; position: relative;
+}
+.cell {
+  border: 0; border-radius: 15px; background: #f0f1f3;
+  font-size: clamp(55px, 9vw, 90px); font-weight: 800; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .12s, background .2s;
+}
+.cell:hover { background: #e4e6e9; transform: scale(.98); }
+.cell.x { color: #ed3046; }
+.cell.o { color: #1879a8; }
+
+.win-line {
+  position: absolute; height: 9px; background: #ee3045; border-radius: 20px;
+  transform-origin: left center; display: none; z-index: 5;
+  box-shadow: 0 0 8px rgba(238,48,69,.3);
+}
+.win-line.show { display: block; }
+
+.controls { display: flex; justify-content: center; gap: 22px; margin-top: 32px; }
+.controls button {
+  border: 0; border-radius: 15px; padding: 15px 28px; color: white;
+  font-size: 18px; font-weight: 700; cursor: pointer;
+}
+.primary { background: #1477f8; }
+.secondary { background: #8792a4; }
+.danger { background: #ef3047; }
+.controls button:hover { filter: brightness(.95); transform: translateY(-1px); }
+
+footer { text-align: center; margin-top: 28px; font-size: 18px; font-style: italic; }
+
+@media (max-width: 850px) {
+  .app { padding: 22px 18px 28px; }
+  .game-area { grid-template-columns: 1fr; }
+  .score-card { display: none; }
+  .settings { grid-template-columns: 1fr; }
+  .settings label { justify-content: center; }
+  .modes, .controls { flex-direction: column; }
+  .board { width: min(390px, 88vw); height: min(390px, 88vw); }
+}

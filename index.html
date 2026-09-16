@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="decor x1">×</div>
+      <div class="decor o1">○</div>
+      <h1><span>Tic</span> Tac <b>Toe</b></h1>
+      <p>Play with Friend or Challenge the Robot</p>
+    </header>
+
+    <section class="modes">
+      <button id="humanMode" class="mode">👥 Human vs Human</button>
+      <button id="robotMode" class="mode active">🤖 Human vs Robot</button>
+    </section>
+
+    <section class="settings">
+      <label>Your Symbol:
+        <select id="symbol">
+          <option value="X">X</option>
+          <option value="O">O</option>
+        </select>
+      </label>
+
+      <div id="status" class="status">Your Turn</div>
+
+      <label id="difficultyWrap">Difficulty:
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="game-area">
+      <aside class="score-card you">
+        <div class="icon">●</div>
+        <h2>You</h2>
+        <p>Score</p>
+        <strong id="humanScore">0</strong>
+      </aside>
+
+      <div class="board-wrap">
+        <div id="board" class="board">
+          <button class="cell" data-index="0"></button>
+          <button class="cell" data-index="1"></button>
+          <button class="cell" data-index="2"></button>
+          <button class="cell" data-index="3"></button>
+          <button class="cell" data-index="4"></button>
+          <button class="cell" data-index="5"></button>
+          <button class="cell" data-index="6"></button>
+          <button class="cell" data-index="7"></button>
+          <button class="cell" data-index="8"></button>
+          <div id="winLine" class="win-line"></div>
+        </div>
+      </div>
+
+      <aside class="score-card robot">
+        <div class="icon">🤖</div>
+        <h2 id="opponentTitle">Robot</h2>
+        <p>Score</p>
+        <strong id="robotScore">0</strong>
+      </aside>
+    </section>
+
+    <section class="controls">
+      <button id="newGame" class="primary">↻ New Game</button>
+      <button id="undo" class="secondary">↶ Undo</button>
+      <button id="resetScore" class="danger">♲ Reset Score</button>
+    </section>
+
+    <footer>“Small games, big thinking!”</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
